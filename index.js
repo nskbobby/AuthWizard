@@ -6,7 +6,7 @@ import passport from "passport";
 import { dirname } from "path";
 import session from "express-session";
 import pg from "pg";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { Strategy } from "passport-local";
 import flash from "connect-flash";
 import GoogleStrategy from "passport-google-oauth2";
@@ -353,8 +353,8 @@ async function handleuser(profile, done) {
       // If user doesn't exist, create a new user
       const newuser = await createaccount({
         username: profile.emails[0].value,
-        password: "auth@123", // Default password for  login
-        confirmpassword: "auth@123",
+        password: "Auth@1234", // Default password for  login
+        confirmpassword: "Auth@1234",
         data: profile,
       });
 
