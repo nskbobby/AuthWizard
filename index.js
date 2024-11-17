@@ -30,10 +30,7 @@ const db = new pg.Client({
 
 db.connect();
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 4c99230c131c64bcf07ec261321d4c1f323e469c
 //=========================Middleware===========================
 app.use(express.json()); 
 app.use(bodyParser.urlencoded({ extended: true })); //to read url encoded values
