@@ -38,7 +38,8 @@ app.use(  //express session manager setup
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true },
+    cookie: { secure: true ,
+             maxAge: 24 * 60 * 60 * 1000},
   })
 );
 
