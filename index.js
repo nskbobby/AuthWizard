@@ -6,7 +6,7 @@ import passport from "passport";
 import { dirname } from "path";
 import session from "express-session";
 import pg from "pg";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { Strategy } from "passport-local";
 import flash from "connect-flash";
 import GoogleStrategy from "passport-google-oauth2";
