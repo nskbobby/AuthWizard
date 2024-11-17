@@ -17,7 +17,7 @@ import OpenIDConnectStrategy from "passport-openidconnect";
 dotenv.config();
 const app = express();
 const dircname = dirname(fileURLToPath(import.meta.url));
-const app_server = process.env.port || 3000;
+const app_server = process.env.PORT || 3000;
 
 //dataabase config
 const db = new pg.Client({
