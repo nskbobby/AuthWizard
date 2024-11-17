@@ -13,8 +13,6 @@ import GoogleStrategy from "passport-google-oauth2";
 import FacebookStrategy from "passport-facebook";
 import TwitterStrategy from "passport-twitter";
 import OpenIDConnectStrategy from "passport-openidconnect";
-import Redis from "redis";
-import connectRedis from "connect-redis";
 
 dotenv.config();
 const app = express();
@@ -32,22 +30,12 @@ const db = new pg.Client({
 
 db.connect();
 
-const RedisStore = new connectRedis(session);
-
-// Create Redis client
-const redisClient = Redis.createClient({
-  host: process.env.REDIS_HOST, 
-  port:  6379,
-  tls: process.env.REDIS_TLS === 'true' ? {} : null, 
-});
-
 
 //=========================Middleware===========================
 app.use(express.json()); 
 app.use(bodyParser.urlencoded({ extended: true })); //to read url encoded values
 app.use(  //express session manager setup
   session({
-    store: new RedisStore({ client: redisClient }),
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
