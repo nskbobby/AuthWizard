@@ -32,7 +32,7 @@ const db = new pg.Client({
 
 db.connect();
 
-const RedisStore = connectRedis(session);
+const RedisStore = new connectRedis(session);
 
 // Create Redis client
 const redisClient = Redis.createClient({
